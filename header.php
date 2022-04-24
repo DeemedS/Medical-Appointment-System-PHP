@@ -22,3 +22,6 @@
         <script type="text/javascript" src="admin/assets/js/select2.min.js"></script>
         <link href="admin/assets/css/select2.min.css" rel="stylesheet">
 
+        <link rel="stylesheet" href="css/cstyle.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+

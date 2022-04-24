@@ -58,6 +58,7 @@
 						<th>Doctor</th>
 						<th>Pateint</th>
 						<th>Status</th>
+						<th>Button</th>
 						<th>Action</th>
 					</tr>
 					</thead>
@@ -79,7 +80,7 @@
 					?>
 					<tr>
 						<td><?php echo date("l M d, Y h:i A",strtotime($row['schedule'])) ?></td>
-						<td><?php echo "DR. ".$doc_arr[$row['doctor_id']]['name'].', '.$doc_arr[$row['doctor_id']]['name'] ?></td>
+						<td><?php echo "DR. ".$doc_arr[$row['doctor_id']]['name'].'' ?></td>
 						<td><?php echo $p_arr[$row['patient_id']]['name'] ?></td>
 						<td>
 							<?php if($row['status'] == 0): ?>
@@ -95,6 +96,16 @@
 								<span class="badge badge-info">Done</span>
 							<?php endif ?>
 						</td>
+
+						<td>
+							<?php if ($type == 3): ?>
+							<a class="nav-link js-scroll-trigger" href="index.php?page=chat&id=<?php echo $row['doctor_id'] ?>">chat</a>
+							<?php endif ?>
+							<?php if ($type == 2): ?>
+							<a class="nav-link js-scroll-trigger" href="index.php?page=chat&id=<?php echo $row['patient_id'] ?>">chat</a>
+							<?php endif ?>
+						</td>
+
 						<td class="text-center">
 							<button  class="btn btn-primary btn-sm update_app" type="button" data-id="<?php echo $row['id'] ?>">Update</button>
 							<button  class="btn btn-danger btn-sm delete_app" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>

@@ -358,15 +358,26 @@ Class Action {
 		$data .= ", type = 3";
 		$data .= ", doctor_id = 0";
 
-		$save = $this->db->query("UPDATE users set ".$data." where id = ".$id);
-	
-		if($save){
-			return 1;
+		$chk = $this->db->query("SELECT * FROM users where username = '$email' and id !='$id' ")->num_rows;
+
+
+		if($chk > 0){
+			return 2;
+			exit;
 		}
 
-		else{
-			return 2;
-		}
+		$save = $this->db->query("UPDATE users set ".$data." where id = ".$id);
+	
+		if ($save) {
+				return 1;
+			}
+
+			else{
+				return 2;
+			}
+
+
+		
 	}
 	
 

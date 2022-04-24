@@ -33,9 +33,8 @@ include('src/components/database/userquery.php');
 							
 							<div class="form-group">
 								<label class="control-label">Name</label>
-								<textarea name="name" cols="30" rows="2" class="form-control" required=""><?php echo  $name ?></textarea>
+								<textarea name="name" cols="30" rows="2" class="form-control" required=""><?php echo  $name?></textarea>
 							</div>
-
 
 							<div class="form-group">
 								<label class="control-label">Address</label>

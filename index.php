@@ -36,10 +36,10 @@
 
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=dashboard">Dashboard</a></li>
                         <?php if($_SESSION['login_type'] == 2): ?>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=account">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=doctor_profile">Profile</a></li>
                         <?php endif; ?>
                         <?php if($_SESSION['login_type'] == 3): ?>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=profile">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=user_profile">Profile</a></li>
                         <?php endif; ?>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="admin/ajax.php?action=logout2"><i class="fa fa-power-off"></i></a></li>
                         <?php else: ?>
