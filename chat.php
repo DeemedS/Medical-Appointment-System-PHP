@@ -31,7 +31,7 @@
         ?>
 
         <a href="index.php?page=dashboard" class="back-icon"><i class="fas fa-arrow-left"></i></a>
-        <img src="php/images/" alt="">
+        <img src="assets/img/<?php echo $row['img'] ?>" alt="">
         <div class="details">
           <span><?php echo $row['name']?></span>
         </div>
@@ -45,6 +45,11 @@
         <form action="#" class="typing-area">
           <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
           <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
+
+            <label for="file-input"><i class="large material-icons">image</i></label>
+            <input id="file-input" type="file" name="img_msg" accept="image/x-png,image/gif,image/jpeg,image/jpg">
+
+
           <button><i class="fab fa-telegram-plane"></i></button>
         </form>
 
