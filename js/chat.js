@@ -1,6 +1,7 @@
 const form = document.querySelector(".typing-area"),
 incoming_id = form.querySelector(".incoming_id").value,
 inputField = form.querySelector(".input-field"),
+inputFile = form.querySelector("#file-input"),
 sendBtn = form.querySelector("button"),
 chatBox = document.querySelector(".chat-box");
 chatMess = document.querySelector(".messages");
@@ -25,6 +26,7 @@ sendBtn.onclick = ()=>{
       if(xhr.readyState === XMLHttpRequest.DONE){
           if(xhr.status === 200){
               inputField.value = "";
+              inputFile.value = "";
               scrollToBottom();
           }
       }
