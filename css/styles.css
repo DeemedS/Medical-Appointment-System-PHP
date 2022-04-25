@@ -10351,6 +10351,7 @@ div#menu-field img, div#menu-field .menu-item-details {
   height: 45px;
   width: 45px;
   margin: 0 15px;
+  border-radius: 50%;
 }
 .chat-area header .details span{
   font-size: 17px;
@@ -10375,6 +10376,15 @@ div#menu-field img, div#menu-field .menu-item-details {
   padding: 10px 30px 20px 30px;
 }
 
+#file-input {
+  display: none;
+}
+
+.typing-area label i {
+  height: 45px;
+  font-size: 45px;
+}
+
 .chat-box .text{
   position: absolute;
   top: 45%;
@@ -10386,7 +10396,7 @@ div#menu-field img, div#menu-field .menu-item-details {
 .chat-box .chat{
   margin: 15px 0;
 }
-.chat-box .chat p{
+.chat-box .chat .mess{
   word-wrap: break-word;
   padding: 8px 16px;
   box-shadow: 0 0 32px rgb(0 0 0 / 8%),
@@ -10399,7 +10409,7 @@ div#menu-field img, div#menu-field .menu-item-details {
   margin-left: auto;
   max-width: calc(100% - 130px);
 }
-.outgoing .details p{
+.outgoing .details .mess{
   background: #333;
   color: #fff;
   border-radius: 18px 18px 0 18px;
@@ -10409,15 +10419,29 @@ div#menu-field img, div#menu-field .menu-item-details {
   align-items: flex-end;
 }
 .chat-box .incoming img{
-  height: 35px;
-  width: 35px;
+  height: 150;
+  width: 250;
+  border-radius: 1rem;
 }
+
+.incoming .imgmess {
+  background: #fff;
+  border-radius: 18px 18px 18px 0;
+  padding: 1rem;
+}
+
+.outgoing .imgmess {
+  background: #fff;
+  border-radius: 18px 18px 0 18px;
+  padding: 1rem;
+}
+
 .chat-box .incoming .details{
   margin-right: auto;
   margin-left: 10px;
   max-width: calc(100% - 130px);
 }
-.incoming .details p{
+.incoming .details .mess{
   background: #fff;
   color: #333;
   border-radius: 18px 18px 18px 0;
@@ -10448,11 +10472,18 @@ div#menu-field img, div#menu-field .menu-item-details {
   pointer-events: none;
   border-radius: 0 5px 5px 0;
   transition: all 0.3s ease;
+  max-height: 45px;
 }
 .typing-area button.active{
   opacity: 1;
   pointer-events: auto;
 }
+
+:is(.messages)::-webkit-scrollbar{
+  width: 0px;
+}
+
+
 
 /* Responive media query */
 @media screen and (max-width: 450px) {
@@ -10485,5 +10516,6 @@ div#menu-field img, div#menu-field .menu-item-details {
   }
   .chat-area form button{
     width: 45px;
+    max-height: 40px;
   }
 }
