@@ -8,32 +8,45 @@
     include('header.php');
     ob_end_flush();
     ?>
-
-    <style>
-    	header.masthead {
-		  background: url(assets/img/<?php echo $_SESSION['setting_cover_img'] ?>);
-		  background-repeat: no-repeat;
-		  background-size: cover;
-		}
-    </style>
     
     <body id="page-top">
+      
         <!-- Navigation-->
-        <div class="toast" id="alert_toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-body text-white">
-        </div>
-      </div>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="./"><?php echo $_SESSION['setting_name'] ?></a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand js-scroll-trigger" href="./"><img src="assets/img/logo.png" alt="" width="40" height="30" class="d-inline-block align-text-top">
+                <?php echo $_SESSION['setting_name'] ?></a>
+
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" 
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=doctors"></span>Doctors</a></li>
+
+                        <?php if(isset($_SESSION['setting_name'])): ?>
+
+                            <?php if(isset($_SESSION['login_type'])): ?>
+                              <?php if($_SESSION['login_type'] == 2): ?>
+                              <li class="nav-item" style="display: none;"><a class="nav-link js-scroll-trigger" href="index.php?page=doctors"></span>Doctors</a></li>
+                              <?php endif; ?>
+                              <?php if($_SESSION['login_type'] == 3): ?>
+                              <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=doctors"></span>Doctors</a></li>
+                              <?php endif; ?>
+                            <?php endif; ?>
+                            
+                            <?php if(!isset($_SESSION['login_type'])): ?>
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=doctors"></span>Doctors</a></li>
+                            <?php endif; ?>
+                            
+                        <?php endif; ?>
+
+                        <li class="nav-item" style="display:none"><a class="nav-link js-scroll-trigger" href="index.php?page=doctors"></span>Doctors</a></li>
+
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a></li>
                         <?php if(isset($_SESSION['login_id'])): ?>
-
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=dashboard">Dashboard</a></li>
                         <?php if($_SESSION['login_type'] == 2): ?>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=doctor_profile">Profile</a></li>
@@ -49,7 +62,7 @@
                 </div>
             </div>
         </nav>
-       
+
         <?php 
         $page = isset($_GET['page']) ?$_GET['page'] : "home";
         include $page.'.php';
@@ -101,6 +114,9 @@
       </div>
     </div>
   </div>
+  <div class="toast" id="alert_toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body text-white"></div>
+        </div>
         <footer class="bg-light py-5">
             <div class="container">
                 <div class="row justify-content-center">
