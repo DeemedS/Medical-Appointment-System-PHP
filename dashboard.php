@@ -16,106 +16,118 @@
 
 ?>
 
-<style>
-    header.dashboard-header {
-        padding-top: 10rem;
-        padding-bottom: calc(10rem - 4.5rem);
-        background: linear-gradient(to bottom, rgb(0 0 0 / 40%) 0%, rgb(245 242 240 / 45%) 100%), url(../assets/img/theater-bg.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-size: cover;
-        }
+<section class="page-section dashboard">
 
-    .dbcontainer {
-        height: 100vh;
-    }
-</style>
 
-<header class="dashboard-header">
-     <div class="container h-100">
-        <div class="row h-100 align-items-center justify-content-center text-center">
-             <div class="col-lg-10 align-self-end mb-4 page-title">
-                    <h3 class="text-white">My Appointments</h3>
-             </div>
-        </div>
-    </div>
-</header>
+	<div class="title">
+		<h3>MY APPOINTMENTS</h3>
+	</div>
 
-    
-<div class="dbcontainer container-fluid">
-	<div class="col-md-12">
-		<div class="card">
-			<div class="card-body">
-				<?php if ($type == 3): ?>
-				<button class="btn-primary btn btn-sm" type="button" id="new_appointment"><i class="fa fa-plus"></i> New Appointment</button>
-				<?php endif; ?>
-				<br>
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-						<th>Schedule</th>
-						<th>Doctor</th>
-						<th>Pateint</th>
-						<th>Status</th>
-						<th>Button</th>
-						<th>Action</th>
-					</tr>
-					</thead>
-					<?php 
-					$where = '';
+	<div class="container">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
 
-					if ($type == 3){
-						$where = " where patient_id = ".$_SESSION['login_id'];
-					}
+					<?php if ($type == 3): ?>
+					<button class="btn-primary btn btn-sm" type="button" id="new_appointment"><i class="fa fa-plus"></i> New Appointment</button>
+					<?php endif; ?>
+					<br>
 
-					if ($type == 2){
-						$where = " where doctor_id = " .$did;
-					}
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Schedule</th>
+								<?php if ($type == 3): ?>
+								<th>Doctor</th>
+								<?php endif ?>
+								<?php if ($type == 2): ?>
+								<th>Pateint</th>
+								<?php endif ?>
+								<th>Status</th>
+								<th>Payment Status</th>
+								<th>Proof of Payment</th>
+								<th>Action</th>
+							</tr>
+							</thead>
+							<?php 
+							$where = '';
 
-					
-					if($_SESSION['login_id'] == $uid)
-					$qry = $conn->query("SELECT * FROM appointment_list ".$where." order by id desc ");
-					while($row = $qry->fetch_assoc()):
-					?>
-					<tr>
-						<td><?php echo date("l M d, Y h:i A",strtotime($row['schedule'])) ?></td>
-						<td><?php echo "DR. ".$doc_arr[$row['doctor_id']]['name'].'' ?></td>
-						<td><?php echo $p_arr[$row['patient_id']]['name'] ?></td>
-						<td>
-							<?php if($row['status'] == 0): ?>
-								<span class="badge badge-warning">Pending Request</span>
-							<?php endif ?>
-							<?php if($row['status'] == 1): ?>
-								<span class="badge badge-primary">Confirmed</span>
-							<?php endif ?>
-							<?php if($row['status'] == 2): ?>
-								<span class="badge badge-info">Rescheduled</span>
-							<?php endif ?>
-							<?php if($row['status'] == 3): ?>
-								<span class="badge badge-info">Done</span>
-							<?php endif ?>
-						</td>
+							if ($type == 3){
+								$where = " where patient_id = ".$_SESSION['login_id'];
+							}
 
-						<td>
-							<?php if ($type == 3): ?>
-							<a class="nav-link js-scroll-trigger" href="index.php?page=chat&id=<?php echo $row['doctor_id'] ?>">chat</a>
-							<?php endif ?>
-							<?php if ($type == 2): ?>
-							<a class="nav-link js-scroll-trigger" href="index.php?page=chat&id=<?php echo $row['patient_id'] ?>">chat</a>
-							<?php endif ?>
-						</td>
+							if ($type == 2){
+								$where = " where doctor_id = " .$did;
+							}
 
-						<td class="text-center">
-							<button  class="btn btn-primary btn-sm update_app" type="button" data-id="<?php echo $row['id'] ?>">Update</button>
-							<button  class="btn btn-danger btn-sm delete_app" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
-						</td>
-					</tr>
-				<?php endwhile; ?>
-				</table>
+							
+							if($_SESSION['login_id'] == $uid)
+							$qry = $conn->query("SELECT * FROM appointment_list ".$where." order by id desc ");
+							while($row = $qry->fetch_assoc()):
+							?>
+							<tr>
+
+								<td><?php echo date("l M d, Y h:i A",strtotime($row['schedule'])) ?></td>
+								<?php if ($type == 2): ?>
+								<td><?php echo "DR. ".$doc_arr[$row['doctor_id']]['name'].'' ?></td>
+								<?php endif ?>
+								<?php if ($type == 3): ?>
+								<td><?php echo $p_arr[$row['patient_id']]['name'] ?></td>
+								<?php endif ?>
+								<td>
+									<?php if($row['status'] == 0): ?>
+										<span class="badge bg-warning">Pending Request</span>
+									<?php endif ?>
+									<?php if($row['status'] == 1): ?>
+										<span class="badge bg-primary">Confirmed</span>
+									<?php endif ?>
+									<?php if($row['status'] == 2): ?>
+										<span class="badge bg-info">Rescheduled</span>
+									<?php endif ?>
+									<?php if($row['status'] == 3): ?>
+										<span class="badge bg-success">Done</span>
+									<?php endif ?>
+								</td>
+
+								<td>
+									<?php if($row['payment_status'] == 0): ?>
+										<span class="badge bg-warning">Unpaid</span>
+									<?php endif ?>
+									<?php if($row['payment_status'] == 1): ?>
+										<span class="badge bg-success">Paid</span>
+									<?php endif ?>
+									<?php if($row['payment_status'] == 2): ?>
+										<span class="badge bg-info">Processing</span>
+									<?php endif ?>
+									<?php if($row['payment_status'] == 3): ?>
+										<span class="badge bg-primary">Resubmit</span>
+									<?php endif ?>
+								</td>
+								
+								<td></td>
+
+								<td class="text-center">
+									<button  class="btn btn-primary btn-sm update_app" type="button" data-id="<?php echo $row['id'] ?>">Update</button>
+									<button  class="btn btn-danger btn-sm delete_app" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+
+									<?php if($row['status'] == 1): ?>
+										<?php if ($type == 3): ?>
+										<a class="btn btn-info btn-sm" href="index.php?page=chat&id=<?php echo $row['patient_id'] ?>">Meet the doctor</a>
+										<?php endif ?>
+
+										<?php if ($type == 2): ?>
+										<a class="btn btn-info btn-sm" href="index.php?page=chat&id=<?php echo $row['patient_id'] ?>">Talk to the patient</a>
+										<?php endif ?>
+									<?php endif ?>
+								</td>
+							</tr>
+						<?php endwhile; ?>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
+
+</section>
 
 <script src="js/dashboard.js"> </script>
