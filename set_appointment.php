@@ -13,7 +13,7 @@ include ('admin/db_connect.php')
 			<input type="hidden" name="doctor_id" value="<?php echo $_GET['id'] ?>">
 			<div class="form-group">
 				<label for="" class="control-label">Date</label>
-				<input type="date" value="" name="date" class="form-control" required>
+				<input type="date" id="date" value="" name="date" class="form-control" required>
 			</div>
 
 			<div class="form-group">
@@ -24,7 +24,7 @@ include ('admin/db_connect.php')
 			<hr>
 			<div class="col-md-12 text-center">
 				<button class="btn-primary btn btn-sm col-md-4">Request</button>
-				<button class="btn btn-secondary btn-sm col-md-4  " type="button" data-dismiss="modal" id="">Close</button>
+				<button class="btn btn-secondary btn-sm col-md-4  " type="button" data-bs-dismiss="modal" id="">Close</button>
 			</div>
 		</form>
 	</div>
@@ -52,5 +52,14 @@ include ('admin/db_connect.php')
 			}
 		})
 	})
+
+var now = new Date();
+
+var day = ("0" + now.getDate()).slice(-2);
+var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+var today = now.getFullYear() + "-" + (month) + "-" + (day);
+
+$('#date').attr('min', today)
 </script>
 
