@@ -5,6 +5,7 @@
 
         $name_pref = $row['name_pref'];
         $ids = $row['specialty_ids'];
+        $docimg= $row['img_path'];
        
         }
 
