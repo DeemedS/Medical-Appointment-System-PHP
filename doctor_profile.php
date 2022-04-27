@@ -4,34 +4,33 @@ include('src/components/database/userquery.php');
 include('src/components/database/doctorslistquery.php');
 ?>
 
-        <header class="masthead">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-10 align-self-end mb-4 page-title">
-                    	<h3 class="text-white">Profile</h3>
-                        <hr class="divider my-4" />
-                    </div>
-                    
-                </div>
-            </div>
-        </header>
+<section class="page-section" id="doctor-profile" >
 
-	<section class="page-section" id="account" >
+	<div class="doctor-title title">
+			<h3>MY PROFILE</h3>
+	</div>
 
-    <div class="container-fluid">
-
+    <div class="container">
 
 			<form action="" id="manage-profile">
 
 				<div class="card">
-					<div class="card-header">My Profile</div>
 
 					<div class="card-body">
 							<div id="msg"></div>
 							<input type="hidden" name="id" value="<?php	echo  $did; ?>">
 
 							<input type="hidden" id="type" value="<?php echo  $type ?>">
-							
+
+							<div class="form-group profile-image">
+								<img src="assets/img/<?php echo $docimg ?>" alt="" id="cimg">
+							</div>	
+
+							<div class="form-group">
+								<label for="" class="control-label">Image</label>
+								<input type="file" class="form-control" name="img" onchange="displayImg(this,$(this))">
+							</div>
+
 							<div class="form-group">
 								<label for="" class="control-label">Prefix</label>
 								<input type="text" class="form-control" name="name_pref" placeholder="(M.D.)" required="" value="<?php echo  $name_pref ?>">
@@ -76,14 +75,6 @@ include('src/components/database/doctorslistquery.php');
 								<label for="" class="control-label">Password</label>
 								<input type="password" class="form-control" name="password" >
 							</div>
-
-							<div class="form-group">
-								<label for="" class="control-label">Image</label>
-								<input type="file" class="form-control" name="img" onchange="displayImg(this,$(this))">
-							</div>
-							<div class="form-group">
-								<img src="" alt="" id="cimg">
-							</div>	
 
 							
 							
