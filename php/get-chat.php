@@ -25,6 +25,7 @@
         $query = mysqli_query($conn, $sql);
         if(mysqli_num_rows($query) > 0){
             while($row = mysqli_fetch_assoc($query)){
+                
                 if($row['outgoing_msg_id'] === $outgoing_id){
 
                     if ($row['img_msg'] != null){
