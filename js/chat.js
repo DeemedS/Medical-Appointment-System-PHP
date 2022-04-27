@@ -1,3 +1,4 @@
+
 const form = document.querySelector(".typing-area"),
 incoming_id = form.querySelector(".incoming_id").value,
 inputField = form.querySelector(".input-field"),
@@ -6,18 +7,11 @@ sendBtn = form.querySelector("button"),
 chatBox = document.querySelector(".chat-box");
 chatMess = document.querySelector(".messages");
 
+
 form.onsubmit = (e)=>{
     e.preventDefault();
 }
 
-inputField.focus();
-inputField.onkeyup = ()=>{
-    if(inputField.value != ""){
-        sendBtn.classList.add("active");
-    }else{
-        sendBtn.classList.remove("active");
-    }
-}
 
 sendBtn.onclick = ()=>{
     let xhr = new XMLHttpRequest();
@@ -27,6 +21,9 @@ sendBtn.onclick = ()=>{
           if(xhr.status === 200){
               inputField.value = "";
               inputFile.value = "";
+              $('.img-up  ').hide()
+              const $blah = $('#blah');
+              $($blah).attr('src', '');
               scrollToBottom();
           }
       }
