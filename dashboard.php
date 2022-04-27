@@ -108,7 +108,6 @@
 
 								<td class="text-center">
 									<button  class="btn btn-primary btn-sm update_app" type="button" data-id="<?php echo $row['id'] ?>">Update</button>
-									<button  class="btn btn-danger btn-sm delete_app" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 
 									<?php if($row['status'] == 1): ?>
 										<?php if ($type == 3): ?>
@@ -119,6 +118,8 @@
 										<a class="btn btn-info btn-sm" href="index.php?page=chat&id=<?php echo $row['patient_id'] ?>">Talk to the patient</a>
 										<?php endif ?>
 									<?php endif ?>
+
+									<button  class="btn btn-danger btn-sm delete_app" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 								</td>
 							</tr>
 						<?php endwhile; ?>
