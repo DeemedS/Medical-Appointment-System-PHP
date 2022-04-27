@@ -10,8 +10,8 @@
 <body>
   <div class="wrapper">
     <section class="chat-area">
-      <header>
-        
+
+      <header class="chat-header">
         <?php 
           $user_id = mysqli_real_escape_string($conn, $_GET['id']);
           
