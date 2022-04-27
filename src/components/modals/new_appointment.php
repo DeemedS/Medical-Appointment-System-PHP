@@ -36,7 +36,7 @@ $doctor= $conn->query("SELECT * FROM doctors_list ");
 				<?php else: ?>
 			<div class="form-group">
 				<label for="" class="control-label">Doctor</label>
-				<select class="browser-default custom-select select2" name="doctor_id">
+				<select class="form-select" aria-label="Default select example" name="doctor_id">
 					<option value=""></option>
 					<?php foreach($doc_arr as $row): ?>
 					<option value="<?php echo $row['id'] ?>" <?php echo isset($doctor_id) && $doctor_id == $row['id'] ? 'selected' : '' ?>><?php echo "DR. ".$row['name'].', '.$row['name'] ?></option>
@@ -52,7 +52,7 @@ $doctor= $conn->query("SELECT * FROM doctors_list ");
 
 			<div class="form-group">
 				<label for="" class="control-label">Date</label>
-				<input type="date"  name="date" class="form-control" value="<?php echo isset($schedule) ? date("Y-m-d",strtotime($schedule)) : '' ?>" required>
+				<input type="date" id="date" name="date" class="form-control" value="<?php echo isset($schedule) ? date("Y-m-d",strtotime($schedule)) : '' ?>" required>
 			</div>
 
 			<div class="form-group">
@@ -63,7 +63,7 @@ $doctor= $conn->query("SELECT * FROM doctors_list ");
 			<hr>
 			<div class="col-md-12 text-center">
 				<button class="btn-primary btn btn-sm col-md-4">Update</button>
-				<button class="btn btn-secondary btn-sm col-md-4  " type="button" data-dismiss="modal" id="">Close</button>
+				<button class="btn btn-secondary btn-sm col-md-4  " type="button" data-bs-dismiss="modal" id="">Close</button>
 			</div>
 		</form>
 	</div>
@@ -94,5 +94,14 @@ $doctor= $conn->query("SELECT * FROM doctors_list ");
 			}
 		})
 	})
+
+var now = new Date();
+
+var day = ("0" + now.getDate()).slice(-2);
+var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+var today = now.getFullYear() + "-" + (month) + "-" + (day);
+
+$('#date').attr('min', today)
 </script>
 
