@@ -2,11 +2,13 @@
 <div class="container-fluid">
 	<form action="" id="signup-frm">
 		
-		<div class="btn-group btn-group-toggle" data-toggle="buttons">
-  			<label class="btn btn-secondary active">
-    		<input type="radio" name="type" value="3" id="patient" autocomplete="off" checked> Patient </label>
-  			<label class="btn btn-secondary">
-    		<input type="radio" name="type" value="2" id="doctor" autocomplete="off"> Doctor </label>
+		<div class="type-button" role="group" aria-label="Basic radio toggle button group">
+			<input type="radio" class="btn-check" name="type" id="patient" value="3" autocomplete="off" checked>
+			<label class="btn btn-outline-primary" for="patient">Patient</label>
+
+			<input type="radio" class="btn-check" name="type" id="doctor" value="2"autocomplete="off">
+			<label class="btn btn-outline-primary" for="doctor">Doctor</label>
+
 		</div>
 
 		<div class="form-group">
@@ -29,7 +31,11 @@
 			<label for="" class="control-label">Password</label>
 			<input type="password" name="password" required="" class="form-control">
 		</div>
-		<button class="button btn btn-info btn-sm">Create</button>
+
+		<div class="lbutton">
+		<button class="button btn btn-info btn-sm">Create Account</button>
+		</div>
+
 	</form>
 </div>
 
