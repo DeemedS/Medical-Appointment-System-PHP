@@ -230,6 +230,7 @@ Class Action {
 		$data .= ", clinic_address = '$clinic_address' ";
 		$data .= ", contact = '$contact' ";
 		$data .= ", email = '$email' ";
+
 		if(!empty($_FILES['img']['tmp_name'])){
 			$fname = strtotime(date("Y-m-d H:i"))."_".$_FILES['img']['name'];
 			$move = move_uploaded_file($_FILES['img']['tmp_name'], '../assets/img/'.$fname);
@@ -237,6 +238,7 @@ Class Action {
 				$data .=", img_path = '$fname' ";
 			}
 		}
+
 		$data .=" , specialty_ids = '[".implode(",",$specialty_ids)."]' ";
 		if(empty($id)){
 			$save = $this->db->query("INSERT INTO doctors_list set ".$data);
@@ -364,6 +366,14 @@ Class Action {
 		if($chk > 0){
 			return 2;
 			exit;
+		}
+
+		if(!empty($_FILES['img']['tmp_name'])){
+			$fname = strtotime(date("Y-m-d H:i"))."_".$_FILES['img']['name'];
+			$move = move_uploaded_file($_FILES['img']['tmp_name'], '../assets/img/'.$fname);
+			if($move){
+				$data .=", img = '$fname' ";
+			}
 		}
 
 		$save = $this->db->query("UPDATE users set ".$data." where id = ".$id);
