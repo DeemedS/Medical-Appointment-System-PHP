@@ -11,6 +11,7 @@
         $did = $row['doctor_id'];
         $type = $row['type'];
         $address = $row['address'];
+        $imag =  $row['img'];
         }
 
 
