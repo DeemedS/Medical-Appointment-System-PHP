@@ -1,22 +1,33 @@
 <?php session_start() ?>
+
 <div class="container-fluid">
 	<form action="" id="login-frm">
-		<div class="btn-group btn-group-toggle" data-toggle="buttons">
-  			<label class="btn btn-secondary active">
-    		<input type="radio" name="type" value="3" id="patient" autocomplete="off" checked> Patient </label>
-  			<label class="btn btn-secondary">
-    		<input type="radio" name="type" value="2" id="doctor" autocomplete="off"> Doctor </label>
+
+		<div class="type-button" role="group" aria-label="Basic radio toggle button group">
+			<input type="radio" class="btn-check" name="type" id="patient" value="3" autocomplete="off" checked>
+			<label class="btn btn-outline-primary" for="patient">Patient</label>
+
+			<input type="radio" class="btn-check" name="type" id="doctor" value="2"autocomplete="off">
+			<label class="btn btn-outline-primary" for="doctor">Doctor</label>
+
 		</div>
+
+
 		<div class="form-group">
 			<label for="" class="control-label">Email</label>
 			<input type="email" name="email" required="" class="form-control">
 		</div>
+
 		<div class="form-group">
 			<label for="" class="control-label">Password</label>
 			<input type="password" name="password" required="" class="form-control">
-			<small><a href="javascript:void(0)" id="new_account">Create New Account</a></small>
 		</div>
+
+		<div class="lbutton">
+		<small><a href="javascript:void(0)" id="new_account">Create New Account</a></small>
 		<button class="button btn btn-info btn-sm">Login</button>
+		</div>
+
 	</form>
 </div>
 
@@ -46,7 +57,7 @@
 			},
 			success:function(resp){
 				if(resp == 1){
-					location.href ='<?php echo isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php?page=home' ?>';
+					location.href ='<?php echo isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php?page=dashboard' ?>';
 				}else{
 					$('#login-frm').prepend('<div class="alert alert-danger">Email or password is incorrect.</div>')
 					$('#login-frm button[type="submit"]').removeAttr('disabled').html('Login');
