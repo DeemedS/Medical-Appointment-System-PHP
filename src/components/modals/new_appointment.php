@@ -39,7 +39,7 @@ $doctor= $conn->query("SELECT * FROM doctors_list ");
 				<select class="form-select" aria-label="Default select example" name="doctor_id">
 					<option value=""></option>
 					<?php foreach($doc_arr as $row): ?>
-					<option value="<?php echo $row['id'] ?>" <?php echo isset($doctor_id) && $doctor_id == $row['id'] ? 'selected' : '' ?>><?php echo "DR. ".$row['name'].', '.$row['name'] ?></option>
+					<option value="<?php echo $row['id'] ?>" <?php echo isset($doctor_id) && $doctor_id == $row['id'] ? 'selected' : '' ?>><?php echo "DR. ".$row['name'].''?></option>
 					<?php endforeach; ?>
 				</select>
 			</div>
