@@ -8,18 +8,13 @@
 
 
 ?>
-        <header class="masthead">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-10 align-self-end mb-4 page-title">
-                    	<h3 class="text-white">Doctor's</h3>
-                        <hr class="divider my-4" />
-                    </div>
-                    
-                </div>
-            </div>
-        </header>
+
 	<section class="page-section" id="doctors" >
+
+		<div class="doctor-title title">
+				<h3>DOCTORS</h3>
+		</div>
+		
         <div class="container">
         	<div class="card">
         		<div class="card-body">
@@ -75,12 +70,14 @@
         	</div>
         </div>
     </section>
+
     <style>
     	#doctors img{
     		max-height: 300px;
     		max-width: 200px; 
     	}
     </style>
+	
     <script>
         
        $('.view_schedule').click(function(){
