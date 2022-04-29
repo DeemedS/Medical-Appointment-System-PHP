@@ -49,7 +49,7 @@ while($row=$qry->fetch_assoc()){
 	<hr>
 		<div class="row">
 			<button class="btn btn-primary btn-sm col-md-3 mr-2" >Save</button>
-			<button class="btn btn-secondary btn-sm col-md-3  " type="button" data-dismiss="modal" id="">Close</button>
+			<button class="btn btn-secondary btn-sm col-md-3  " type="button" data-bs-dismiss="modal" id="">Close</button>
 		</div>
 	</div>
 	</form>
