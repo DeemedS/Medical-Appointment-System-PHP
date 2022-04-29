@@ -18,62 +18,20 @@ header("location:index.php?page=home");
 ?>
 
 </head>
-<style>
-	body{
-		width: 100%;
-	    height: calc(100%);
-	    /*background: #007bff;*/
-	}
-	main#main{
-		width:100%;
-		height: calc(100%);
-		background:white;
-	}
-	#login-right{
-		position: absolute;
-		right:0;
-		width:40%;
-		height: calc(100%);
-		background:white;
-		display: flex;
-		align-items: center;
-	}
-	#login-left{
-		position: absolute;
-		left:0;
-		width:60%;
-		height: calc(100%);
-		background:#59b6ec61;
-		display: flex;
-		align-items: center;
-		background: url(../assets/img/medical-appointment-cover.jpg);
-	    background-repeat: no-repeat;
-	    background-size: cover;
-	}
-	#login-right .card{
-		margin: auto
-	}
-	.logo {
-    margin: auto;
-    font-size: 8rem;
-    background: #90ffff87;
-    padding: .5em 0.7em;
-    border-radius: 50% 50%;
-    color: #000000b3;
-}
-
-</style>
-
-<body>
 
 
-  <main id="main" class=" bg-dark">
+<body class="loginbody">
+
+
+  <main id="main" class="bg-dark">
+	  
   		<div id="login-left">
   			<div class="logo">
-  				<span class="fa fa-laptop-medical"></span>
+  				<img src="../assets/img/logo.png" alt="">
   			</div>
   		</div>
-  		<div id="login-right">
+
+  		<div id="login-right" >
   			<div class="card col-md-8">
   				<div class="card-body">
   					<form id="login-form" >
