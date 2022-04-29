@@ -1,0 +1,93 @@
+/* APPOINMENTS */
+
+.appoinments .card-body{
+    overflow-x: auto;
+}
+
+table {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* CATEGORIES */
+
+.categories {
+    margin-top: 5rem;
+}
+
+/* HOME */
+
+.home {
+    margin-top: 5rem;
+}
+
+/* LOGIN */
+
+.loginbody{
+    width: 100%;
+    height: 100vh;	
+
+}
+
+#login-right {
+		position: absolute;
+		right:0;
+		width:40%;
+		height: calc(100%);
+		background:white;
+		display: flex;
+		align-items: center;
+}
+
+#login-left {
+    position: absolute;
+    left: 0;
+    background: url(../../../assets/img/background.jpg);
+    background-size: cover;
+    width: 60%;
+    display: flex;
+    height: calc(100%);
+    align-items: center;
+}
+#login-left img {
+    width: 20rem;
+    height: 17rem;
+}
+
+#login-right .card{
+		margin: auto;
+	}
+
+#login-right .card button {
+        margin-top: 2rem;
+    }
+
+#login-left .logo {
+    margin: auto;
+    font-size: 8rem;
+    background: #90ffff87;
+    padding: .5em 0.7em;
+    border-radius: 50% 50%;
+    color: #000000b3;
+    }
+
+/* SETTINGS */
+
+.settings {
+    margin-top: 5rem;
+}
+
+.settings textarea {
+  box-shadow: none;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-color: #1977cc;
+  height: 10rem;
+}
+
+.form-group {
+    margin-top: 0.5rem;
+}
+.settings form > center {
+    margin-top: 2rem ;
+}
