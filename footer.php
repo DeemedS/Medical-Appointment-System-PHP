@@ -8,6 +8,7 @@
     max-width: unset;
   }
  </style>
+ 
  <script>
  	$('.datepicker').datepicker({
  		format:"yyyy-mm-dd"

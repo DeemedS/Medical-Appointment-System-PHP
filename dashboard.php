@@ -29,11 +29,11 @@
 				<div class="card-body">
 
 					<?php if ($type == 3): ?>
-					<button class="btn-primary btn btn-sm" type="button" id="new_appointment"><i class="fa fa-plus"></i> New Appointment</button>
+					<a  href="index.php?page=doctors" class="btn-primary btn btn-sm"><i class="fa fa-plus"></i> New Appointment</a>
 					<?php endif; ?>
 					<br>
 
-					<table class="table table-bordered">
+					<table class="table table-bordered ">
 						<thead>
 							<tr>
 								<th>Schedule</th>
@@ -44,8 +44,6 @@
 								<th>Pateint</th>
 								<?php endif ?>
 								<th>Status</th>
-								<th>Payment Status</th>
-								<th>Proof of Payment</th>
 								<th>Action</th>
 							</tr>
 							</thead>
@@ -68,10 +66,10 @@
 							<tr>
 
 								<td><?php echo date("l M d, Y h:i A",strtotime($row['schedule'])) ?></td>
-								<?php if ($type == 2): ?>
+								<?php if ($type == 3): ?>
 								<td><?php echo "DR. ".$doc_arr[$row['doctor_id']]['name'].'' ?></td>
 								<?php endif ?>
-								<?php if ($type == 3): ?>
+								<?php if ($type == 2): ?>
 								<td><?php echo $p_arr[$row['patient_id']]['name'] ?></td>
 								<?php endif ?>
 								<td>
@@ -89,29 +87,13 @@
 									<?php endif ?>
 								</td>
 
-								<td>
-									<?php if($row['payment_status'] == 0): ?>
-										<span class="badge bg-warning">Unpaid</span>
-									<?php endif ?>
-									<?php if($row['payment_status'] == 1): ?>
-										<span class="badge bg-success">Paid</span>
-									<?php endif ?>
-									<?php if($row['payment_status'] == 2): ?>
-										<span class="badge bg-info">Processing</span>
-									<?php endif ?>
-									<?php if($row['payment_status'] == 3): ?>
-										<span class="badge bg-primary">Resubmit</span>
-									<?php endif ?>
-								</td>
-								
-								<td></td>
 
-								<td class="text-center">
+								<td class="text-center ">
 									<button  class="btn btn-primary btn-sm update_app" type="button" data-id="<?php echo $row['id'] ?>">Update</button>
 
 									<?php if($row['status'] == 1): ?>
 										<?php if ($type == 3): ?>
-										<a class="btn btn-info btn-sm" href="index.php?page=chat&id=<?php echo $row['patient_id'] ?>">Meet the doctor</a>
+										<a class="btn btn-info btn-sm" href="index.php?page=chat&id=<?php echo $row['doctor_id'] ?>">Meet the doctor</a>
 										<?php endif ?>
 
 										<?php if ($type == 2): ?>

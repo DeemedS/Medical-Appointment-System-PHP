@@ -36,7 +36,7 @@
                                 <div class="details">
                                     <div class="imgmess">
                                         <p>'. $row['msg'] .'</p>
-                                        <img src="assets/img/'. $row['img_msg'] .'" alt="" width="250" height="150">
+                                        <img src="assets/img/message-img/'. $row['img_msg'] .'" alt="" width="250" height="150">
                                     </div>
                                 </div>
                                 </div>';
@@ -46,7 +46,7 @@
                             $output .= '<div class="chat outgoing">
                                 <div class="details">
                                     <div class="imgmess">
-                                        <img src="assets/img/'. $row['img_msg'] .'" alt="" width="250" height="150">
+                                        <img src="assets/img/message-img/'. $row['img_msg'] .'" alt="" width="250" height="150">
                                     </div>
                                 </div>
                                 </div>';
@@ -75,7 +75,7 @@
                             <div class="details">
                                 <div class="imgmess">
                                     <p>'. $row['msg'] .'</p>
-                                    <img src="assets/img/'. $row['img_msg'] .'" alt="" width="250" height="150">
+                                    <img src="assets/img/message-img/'. $row['img_msg'] .'" alt="" width="250" height="150">
                                 </div>
                             </div>
                             </div>';
@@ -87,7 +87,7 @@
                             $output .= '<div class="chat incoming">
                             <div class="details">
                                 <div class="imgmess">
-                                    <img src="assets/img/'. $row['img_msg'] .'" alt="" width="250" height="150">
+                                    <img src="assets/img/message-img/'. $row['img_msg'] .'" alt="" width="250" height="150">
                                 </div>
                             </div>
                             </div>';

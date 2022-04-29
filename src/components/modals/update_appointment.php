@@ -68,6 +68,15 @@ $uid = $_SESSION['login_id'];
 				<input type="time"  name="time" class="form-control" value="<?php echo isset($schedule) ? date("H:i",strtotime($schedule)) : '' ?>" required>
 			</div>
 
+			<?php if($_SESSION['login_type'] == 3): ?>
+			<div class="form-group" style="display: none;">
+				<label for="" class="control-label">Status</label>
+				<select class="form-select" aria-label="Default select example" name="status">
+					<option value="0" <?php echo isset($status) && $status == 0 ? "selected" : '' ; ?>>Request</option>
+				</select>
+			</div>
+			<?php endif; ?>
+
 			<?php if($_SESSION['login_type'] != 3): ?>
 			<div class="form-group">
 				<label for="" class="control-label">Status</label>

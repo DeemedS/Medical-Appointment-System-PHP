@@ -80,7 +80,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id='confirm' onclick="">Continue</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
       </div>
     </div>
@@ -95,7 +95,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
       </div>
       </div>
     </div>
@@ -138,7 +138,7 @@
                 </div>
             </div>
             <br>
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - <?php echo $_SESSION['setting_name'] ?> | <a href="https://www.sourcecodester.com/" target="_blank">Sourcecodester</a></div></div>
+            <div class="container"><div class="small text-center text-muted">Copyright © 2022 - <?php echo $_SESSION['setting_name'] ?> </div></div>
         </footer>
         
        <?php include('footer.php') ?>

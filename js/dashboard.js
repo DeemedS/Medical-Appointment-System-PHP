@@ -1,12 +1,12 @@
 
 $('.update_app').click(function(){
 
-    uni_modal("Update Appointment","src/components/modals/update_appointment.php?id="+$(this).attr('data-id'),"mid-large")
+    uni_modal("Update Appointment","src/components/modals/update_appointment.php?id="+$(this).attr('data-id'))
 
 })
 
 $('#new_appointment').click(function(){
-    uni_modal("Add Appointment","src/components/modals/new_appointment.php","mid-large")
+    uni_modal("Add Appointment","src/components/modals/new_appointment.php")
 })
 $('.delete_app').click(function(){
     _conf("Are you sure to delete this appointment?","delete_app",[$(this).attr('data-id')])

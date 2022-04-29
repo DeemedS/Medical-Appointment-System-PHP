@@ -45,7 +45,7 @@
 						 <p>Name: <b><?php echo "Dr. ".$row['name'].', '.$row['name_pref'] ?></b></p>
 						 <p><small>Email: <b><?php echo $row['email'] ?></b></small></p>
 						 <p><small>Clinic Address: <b><?php echo $row['clinic_address'] ?></b></small></p>
-						 <p><small>Contac #: <b><?php echo $row['contact'] ?></b></small></p>
+						 <p><small>Contact #: <b><?php echo $row['contact'] ?></b></small></p>
 						 <p><small><a href="javascript:void(0)" class="view_schedule" data-id="<?php echo $row['id'] ?>" data-name="<?php echo "Dr. ".$row['name'].', '.$row['name_pref'] ?>"><i class='fa fa-calendar'></i> Schedule</a></b></small></p>
 						 <p><b>Specialties:</b></p>
 
@@ -54,7 +54,7 @@
 						 	<?php 
 						 	foreach(explode(",", str_replace(array("[","]"),"",$row['specialty_ids'])) as $k => $val): 
 						 	?>
-						 	<span class="badge badge-light" style="padding: 10px"><large><b><?php echo $ms_arr[$val] ?></b></large></span>
+						 	<span class="badge bg-dark" style="padding: 10px"><large><b><?php echo $ms_arr[$val] ?></b></large></span>
 						 	<?php endforeach; ?>
 						 	<?php endif; ?>
 						 </div>

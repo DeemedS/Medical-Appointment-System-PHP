@@ -22,6 +22,11 @@ include('src/components/database/doctorslistquery.php');
 
 							<input type="hidden" id="type" value="<?php echo  $type ?>">
 
+							<a href="javascript:void(0)" class="btn btn-primary btn-sm view_schedule" data-id="<?php echo $did ?>" 
+							data-name="<?php echo $name ?>"><i class='fa fa-calendar'></i> My Schedule</a>
+
+
+
 							<div class="form-group profile-image">
 								<img src="assets/img/<?php echo $docimg ?>" alt="" id="cimg">
 							</div>	
@@ -45,7 +50,6 @@ include('src/components/database/doctorslistquery.php');
 								<label class="control-label">Medical Specialties</label>
 								<input type="text" id="data-specialty_ids" value="<?php echo  $ids ?>" hidden>
 								<select name="specialty_ids[]"  multiple=""  class="custom-select browser-default select2">
-									<option value=""></option>
 									<?php 
 									$qry = $conn->query("SELECT * FROM medical_specialty order by name asc");
 										while($row=$qry->fetch_assoc()):
@@ -163,5 +167,17 @@ $('#manage-profile').submit(function(e){
 })
 
 </script>
+
+<script>
+	$('#edit').click(function(){
+		uni_modal("Edit "+$('#uni_modal .modal-title').html(),'manage_doctor_schedule.php?did=<?php echo $did ?>','mid-large');
+	})
+
+	$('.view_schedule').click(function(){
+		uni_modal($(this).attr('data-name')+" - Schedule","view_doctor_schedule.php?id="+$(this).attr('data-id'))
+	})
+
+</script>
+
 
 	

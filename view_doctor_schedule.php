@@ -28,8 +28,9 @@
 			</table>
 		</div>
 	<hr>
-		<div class="row">
-			<button class="btn btn-secondary btn-sm col-md-4 offset-md-4 " type="button" data-dismiss="modal" id="">Close</button>
+		<div class="mid-button">
+			<button class="btn btn-primary btn-sm col-md-3 mr-2" type="button" id="edit">Edit</button>
+			<button class="btn btn-secondary btn-sm col-md-3  " type="button" data-bs-dismiss="modal" id="">Close</button>
 		</div>
 	</div>
 </div>

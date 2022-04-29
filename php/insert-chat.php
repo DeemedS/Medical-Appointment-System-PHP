@@ -31,7 +31,7 @@
                         $time = time();
                         $new_img_name = $time.$img_name;
 
-                        if(move_uploaded_file($tmp_name,"../assets/img/".$new_img_name)){
+                        if(move_uploaded_file($tmp_name,"../assets/img/message-img/".$new_img_name)){
                             $ran_id = rand(time(), 100000000);
 
                                 $sql = mysqli_query($conn, "INSERT INTO messages (incoming_msg_id, outgoing_msg_id, msg, img_msg)
