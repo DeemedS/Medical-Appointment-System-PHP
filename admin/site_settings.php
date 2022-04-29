@@ -7,6 +7,13 @@ if($qry->num_rows > 0){
 	}
 }
  ?>
+
+<section class="settings">
+
+<div class="header-container">
+	<h3>SITE SETTING</h3>
+</div>
+
 <div class="container-fluid">
 	
 	<div class="card col-lg-12">
@@ -26,23 +33,19 @@ if($qry->num_rows > 0){
 				</div>
 				<div class="form-group">
 					<label for="about" class="control-label">About Content</label>
-					<textarea name="about" class="text-jqte"><?php echo isset($meta['about_content']) ? $meta['about_content'] : '' ?></textarea>
+					<textarea name="about" class="text-jqte form-control"><?php echo isset($meta['about_content']) ? $meta['about_content'] : '' ?></textarea>
 
 				</div>
-				<div class="form-group">
-					<label for="" class="control-label">Image</label>
-					<input type="file" class="form-control" name="img" onchange="displayImg(this,$(this))">
-				</div>
-				<div class="form-group">
-					<img src="<?php echo isset($meta['cover_img']) ? '../assets/img/'.$meta['cover_img'] :'' ?>" alt="" id="cimg">
-				</div>
+
 				<center>
 					<button class="btn btn-info btn-primary btn-block col-md-2">Save</button>
 				</center>
 			</form>
 		</div>
 	</div>
-	<style>
+</section>
+
+<style>
 	img#cimg{
 		max-height: 10vh;
 		max-width: 6vw;
