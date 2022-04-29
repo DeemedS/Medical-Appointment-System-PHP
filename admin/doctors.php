@@ -1,5 +1,11 @@
 <?php include('db_connect.php');?>
 
+<section class="doctors">
+
+<div class="header-container">
+	<h3>DOCTORS</h3>
+</div>
+
 <div class="container-fluid">
 	
 	<div class="col-lg-12">
@@ -122,6 +128,7 @@
 	</div>	
 
 </div>
+</section>
 <style>
 	
 	td{
