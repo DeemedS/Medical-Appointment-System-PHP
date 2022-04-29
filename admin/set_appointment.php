@@ -33,7 +33,7 @@ $doctor= $conn->query("SELECT * FROM doctors_list ");
 				<?php else: ?>
 			<div class="form-group">
 				<label for="" class="control-label">Doctor</label>
-				<select class="browser-default custom-select select2" name="doctor_id">
+				<select class="form-select" aria-label="Default select example" name="doctor_id">
 					<option value=""></option>
 					<?php foreach($doc_arr as $row): ?>
 					<option value="<?php echo $row['id'] ?>" <?php echo isset($doctor_id) && $doctor_id == $row['id'] ? 'selected' : '' ?>><?php echo "DR. ".$row['name'].', '.$row['name'] ?></option>
@@ -43,7 +43,7 @@ $doctor= $conn->query("SELECT * FROM doctors_list ");
 		<?php endif; ?>
 			<div class="form-group">
 				<label for="" class="control-label">Patient</label>
-				<select class="browser-default custom-select select2" name="patient_id">
+				<select class="form-select" aria-label="Default select example" name="patient_id">
 					<option value=""></option>
 					<?php foreach($p_arr as $row): ?>
 					<option value="<?php echo $row['id'] ?>" <?php echo isset($patient_id) && $patient_id == $row['id'] ? 'selected' : '' ?>><?php echo $row['name'] ?></option>
@@ -61,7 +61,7 @@ $doctor= $conn->query("SELECT * FROM doctors_list ");
 			</div>
 			<div class="form-group">
 				<label for="" class="control-label">Status</label>
-				<select class="browser-default custom-select" name="status">
+				<select class="form-select" aria-label="Default select example" name="status">
 					<option value="0" <?php echo isset($status) && $status == 0 ? "selected" : '' ; ?>>Request</option>
 					<option value="1" <?php echo isset($status) && $status == 1 ? "selected" : '' ; ?>>Confirm</option>
 					<option value="2" <?php echo isset($status) && $status == 2 ? "selected" : '' ; ?>>Rescheduled</option>
@@ -73,7 +73,7 @@ $doctor= $conn->query("SELECT * FROM doctors_list ");
 			<hr>
 			<div class="col-md-12 text-center">
 				<button class="btn-primary btn btn-sm col-md-4">Update</button>
-				<button class="btn btn-secondary btn-sm col-md-4  " type="button" data-dismiss="modal" id="">Close</button>
+				<button class="btn btn-secondary btn-sm col-md-4  " type="button" data-bs-dismiss="modal" id="">Close</button>
 			</div>
 		</form>
 	</div>
